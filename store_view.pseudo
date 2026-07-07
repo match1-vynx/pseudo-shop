@@ -20,3 +20,7 @@ function display_products():
         print "  Brand: " + product.brand
         print "--------------------"
 
+# Show a short summary of available products
+function display_store_summary():
+    total_products = length of product_list
+    print "Total products available: " + total_products
