@@ -8,7 +8,7 @@ current_user = null
 
 
 # ----------------------------
-# VALIDATION HELPER FUNCTIONS
+# validation helper functions
 # ----------------------------
 
 # Check if a value is empty
@@ -52,11 +52,66 @@ function is_valid_password(password):
     return true
 
 
+# ------ VALIDATION HELPER FUNCTIONS - END
+
+
+# ----------------------------
+# create_user & helper funcs
+# ----------------------------
+
+# Find an existing user by email
+function find_user_by_email(email):
+    normalized_email = normalize_email(email)
+
+    for each user in user_list:
+        if user.email == normalized_email:
+            return user
+
+    return null
+
+
+# Create a new user account
+function create_user(name, email, password):
+    if is_blank(name):
+        print "Registration failed: name is required"
+        return false
+
+    if is_valid_email(email) == false:
+        print "Registration failed: valid email is required"
+        return false
+
+    if is_valid_password(password) == false:
+        print "Registration failed: password must be at least 6 characters"
+        return false
+
+    normalized_email = normalize_email(email)
+    existing_user = find_user_by_email(normalized_email)
+
+    if existing_user is not null:
+        print "Registration failed: email already exists"
+        return false
+
+    new_user = {
+        "id": length(user_list) + 1,
+        "name": trim(name),
+        "email": normalized_email,
+        "password": password
+    }
+
+    append new_user to user_list
+
+    print "Registration successful for " + new_user.name
+    return true
+
+
 
 
 
 
 # Placeholder function signatures:
+
+# function login_user(email, password)
+
 
 # function create_user(name, email, password)
 
