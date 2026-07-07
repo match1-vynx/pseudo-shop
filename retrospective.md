@@ -38,13 +38,14 @@ Once Features 1 and 4 were integrated, Michelle used that merged version as the 
 Finally, we reviewed the completed branches before merging them into `main`. Since Michelle owned the GitHub repository, the final merge into `main` was done through her account.
 
 
+
 ## 2. What Git strategies or commands helped you most during the project?
 _(E.g., branching, rebasing, frequent commits, etc.)_
-
 
 The Git strategies that helped us most were creating feature branches for each task, making frequent commits with clear messages, and pulling updates regularly before continuing work. Branching allowed us to work separately without disrupting the main project, while consistent commits made it easier to track changes and review progress. 
 
 We also found that communicating before merging helped prevent unnecessary conflicts and kept the workflow organized. These habits made collaboration smoother and more reliable throughout the project.
+
 
 ## 3. Describe a merge conflict you encountered. What caused it and how did you resolve it?
 _(Include any lessons learned or techniques used to resolve the issue.)_
@@ -62,6 +63,7 @@ To resolve it, Rafael opened the file in an editor and found Git's conflict mark
 
 ## 4. What were the biggest challenges you faced as a team?
 _(This can include communication, Git usage, or coordination.)_
+
 One of the biggest challenges we faced at the beginning was understanding the scope and dependencies of each feature. Although the features were listed separately, some of them still depended on shared files, shared functions, or common data structures. 
 
 To address this, we discussed the expected behavior of each feature and clarified the required product attributes before continuing with implementation. Once we agreed on the feature specifications and the shared structure of the product model, it became easier to develop each feature independently while still keeping the overall system consistent.
@@ -73,30 +75,31 @@ We also encountered a minor issue where some file changes did not appear immedia
 
 ## 5. What did you learn about using Git in a collaborative setting?
 _(Any insights or habits you’d apply in future projects?)_
-all
 
-rafael
-I discovered that following a consistent branching strategy helps teams avoid unnecessary conflicts and maintain a smoother workflow. By working on separate branches for individual features or fixes, we were able to develop independently without interfering with each other's progress. This also makes merging changes more organized and reduces the likelihood of complex merge conflicts.
+- **Michelle** - I learned that Git is not only a tool for saving code changes, but also a workflow for coordinating development across a team. Using feature branches helped us isolate work, protect the `main` branch, and integrate changes more intentionally. I also learned the importance of understanding dependencies between features before merging, especially when multiple members are working with shared files or shared data structures.
 
-gab 
-I learned that regular and descriptive commit is important to prevent confusion and keep the project organized especially when using Git. I also learned that branching is very useful for working on features separately without disrupting the main work.
+- **Rafael** - I discovered that following a consistent branching strategy helps teams avoid unnecessary conflicts and maintain a smoother workflow. By working on separate branches for individual features or fixes, we were able to develop independently without interfering with each other’s progress. This also made merging changes more organized and reduced the likelihood of complex merge conflicts.
+
+- **Gab** - I learned that regular and descriptive commits are important to prevent confusion and keep the project organized, especially when using Git collaboratively. I also learned that branching is useful for working on features separately without disrupting the stable version of the project.
+
+---
 
 ## 6. How would you improve your workflow next time?
 _(Think about technical habits and teamwork practices.)_
-all
 
-rafael 
-I would create smaller, focused commits and merge updates into my branch more often to reduce the risk of conflicts.
+- **Michelle** - Next time, I would establish a more formal review process using pull requests instead of relying only on direct branch merges. Pull requests would make it easier to review changes, discuss implementation details, and verify that the feature is ready before merging it into the stable branch. This would better simulate real software engineering workflows where changes are reviewed before being integrated.
 
+- **Rafael** - Next time, I would create smaller and more focused commits so that each commit represents a clear and specific change. I would also merge or pull updates from the main branch more often to keep my feature branch updated and reduce the risk of larger conflicts later.
 
-gab
-I would test or review the code more carefully before merging changes into the main branch. I would keep a simple task checklist to track what has been completed and what still needs work.
+- **Gab** - Next time, I would review the code more carefully before merging changes into the main branch. I would also maintain a simple task checklist to track which parts of the feature have been completed, what still needs improvement, and whether the feature meets the exit criteria before integration.
+
+---
+
 ## 7. Optional: Any feedback on the activity?
 _(What worked well? What was confusing or could be improved?)_
-all
 
-rafael 
-I liked the activity as I was able to use Git similar to how it would be used in a real-world environment. 
+- **Michelle** - I liked how the activity represented the collaborative nature of Git through group work, branching, merging, and conflict resolution. The mini-capstone format was also engaging because it allowed us to apply Git concepts in a more realistic project scenario.
 
-gab
-The activity was a useful way to practice teamwork and Git in a realistic setting. It helped me understand how branching, commits, and conflict resolution work together in a collaborative project.
+- **Rafael** - I liked the activity because I was able to use Git in a way that is similar to how it would be used in a real-world development environment. It helped me better understand the importance of branches, commits, and controlled merging.
+
+- **Gab** - The activity was a useful way to practice teamwork and Git in a realistic setting. It helped me understand how branching, commits, and conflict resolution work together in a collaborative project.
