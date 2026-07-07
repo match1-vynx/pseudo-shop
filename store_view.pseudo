@@ -1,5 +1,22 @@
 # Displays product listings
 
-# Placeholder function:
-# function display_products()
+function display_products():
+    if product_list is empty:
+        print "No products available in the store."
+        return
+
+    print "Storefront"
+    print "--------------------"
+
+    for each product in product_list:
+        print "Name: " + product.name
+        print "Price: $" + product.price
+        print "Attributes:"
+        print "  Width: " + product.width
+        print "  Height: " + product.height
+        print "  Length: " + product.length
+        print "  Weight: " + product.weight
+        print "  Color: " + product.color
+        print "  Brand: " + product.brand
+        print "--------------------"
 
