@@ -1,3 +1,7 @@
+# --------------------------
+# Feature 4: Display Products
+# --------------------------
+
 # Displays product listings
 
 function display_products():
@@ -37,6 +41,11 @@ function display_featured_product():
     print "Featured product: " + featured_product.name
 
 
+
+
+# --------------------------
+# Feature 1: Filter Products
+# --------------------------
 function filter_products(filters):
     filtered_products = []
 
