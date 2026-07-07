@@ -3,6 +3,8 @@
 # Placeholder function:
 # function display_products()
 
+
+
 function filter_products(filters):
     filtered_products = []
 
@@ -32,4 +34,12 @@ function filter_products(filters):
 
     return filtered_products
 
+
+# Example usage of filter_products:
+# filters = {
+#     color: "red",
+#     brand: "Generic"
+# }
+# matching_products = filter_products(filters)
+# display matching_products
 
