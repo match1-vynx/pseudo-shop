@@ -15,6 +15,11 @@ class Product:
         this.brand = brand
 
 
+# --------------------------
+# In-memory data structure for products
+# --------------------------
+
+
 # In-memory product list
 product_list = []
 
