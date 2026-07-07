@@ -43,6 +43,12 @@ function filter_products(filters):
     for each product in product_list:
         matches_all_filters = true
 
+        if filters contains "min_price" and product.price < filters.min_price:
+            matches_all_filters = false
+
+        if filters contains "max_price" and product.price > filters.max_price:
+            matches_all_filters = false
+
         if filters contains "width" and product.width is not filters.width:
             matches_all_filters = false
 
@@ -70,7 +76,8 @@ function filter_products(filters):
 # Example usage of filter_products:
 # filters = {
 #     color: "red",
-#     brand: "Generic"
+#     brand: "Generic",
+#     min_price: 100
 # }
 # matching_products = filter_products(filters)
 # display matching_products
