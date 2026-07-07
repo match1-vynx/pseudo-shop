@@ -24,3 +24,12 @@ function display_products():
 function display_store_summary():
     total_products = length of product_list
     print "Total products available: " + total_products
+
+# Show the first product in the store
+function display_featured_product():
+    if product_list is empty:s
+        print "No featured product available."
+        returns
+
+    featured_product = product_list[0]
+    print "Featured product: " + featured_product.name
