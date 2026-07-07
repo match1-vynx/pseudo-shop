@@ -3,3 +3,33 @@
 # Placeholder function:
 # function display_products()
 
+function filter_products(filters):
+    filtered_products = []
+
+    for each product in product_list:
+        matches_all_filters = true
+
+        if filters contains "width" and product.width is not filters.width:
+            matches_all_filters = false
+
+        if filters contains "height" and product.height is not filters.height:
+            matches_all_filters = false
+
+        if filters contains "length" and product.length is not filters.length:
+            matches_all_filters = false
+
+        if filters contains "weight" and product.weight is not filters.weight:
+            matches_all_filters = false
+
+        if filters contains "color" and product.color is not filters.color:
+            matches_all_filters = false
+
+        if filters contains "brand" and product.brand is not filters.brand:
+            matches_all_filters = false
+
+        if matches_all_filters:
+            add product to filtered_products
+
+    return filtered_products
+
+
