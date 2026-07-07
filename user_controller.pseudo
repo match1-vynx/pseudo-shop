@@ -1,6 +1,14 @@
 # Handles user signup and login
 
+
+# ----------------------------
+# Feature 2: User login & Registration
+# ----------------------------
+
+
+# ----------------------------
 # In-memory user storage
+# ----------------------------
 user_list = []
 
 # Stores the currently logged-in user
