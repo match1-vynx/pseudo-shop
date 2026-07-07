@@ -52,8 +52,6 @@ function is_valid_password(password):
     return true
 
 
-# ------ VALIDATION HELPER FUNCTIONS - END
-
 
 # ----------------------------
 # create_user & helper funcs
@@ -107,13 +105,38 @@ function create_user(name, email, password):
 
 
 
+# ----------------------------
+# login function
+# ----------------------------
 
-# Placeholder function signatures:
+# Log in using email and password
+function login_user(email, password):
+    if is_valid_email(email) == false:
+        print "Login failed: valid email is required"
+        return false
 
-# function login_user(email, password)
+    if is_blank(password):
+        print "Login failed: password is required"
+        return false
+
+    normalized_email = normalize_email(email)
+    found_user = find_user_by_email(normalized_email)
+
+    if found_user is null:
+        print "Login failed: account does not exist"
+        return false
+
+    if found_user.password != password:
+        print "Login failed: incorrect password"
+        return false
+
+    current_user = found_user
+
+    print "Login successful. Welcome, " + current_user.name
+    return true
 
 
-# function create_user(name, email, password)
+
 
 
 
