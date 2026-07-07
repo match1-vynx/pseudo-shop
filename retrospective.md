@@ -38,6 +38,9 @@ mich
 _(Any insights or habits you’d apply in future projects?)_
 all
 
+rafael
+I discovered that following a consistent branching strategy helps teams avoid unnecessary conflicts and maintain a smoother workflow. By working on separate branches for individual features or fixes, we were able to develop independently without interfering with each other's progress. This also makes merging changes more organized and reduces the likelihood of complex merge conflicts.
+
 gab 
 I learned that regular and descriptive commit is important to prevent confusion and keep the project organized especially when using Git. I also learned that branching is very useful for working on features separately without disrupting the main work.
 
@@ -45,11 +48,18 @@ I learned that regular and descriptive commit is important to prevent confusion 
 _(Think about technical habits and teamwork practices.)_
 all
 
+rafael 
+I would create smaller, focused commits and merge updates into my branch more often to reduce the risk of conflicts.
+
+
 gab
 I would test or review the code more carefully before merging changes into the main branch. I would keep a simple task checklist to track what has been completed and what still needs work.
 ## 7. Optional: Any feedback on the activity?
 _(What worked well? What was confusing or could be improved?)_
 all
+
+rafael 
+I liked the activity as I was able to use Git similar to how it would be used in a real-world environment. 
 
 gab
 The activity was a useful way to practice teamwork and Git in a realistic setting. It helped me understand how branching, commits, and conflict resolution work together in a collaborative project.
