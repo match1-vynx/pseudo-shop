@@ -1,9 +1,9 @@
 # Displays product listings
 
-# Placeholder function:
-# function display_products()
-
-
+function display_products():
+    if product_list is empty:
+        print "No products available in the store."
+        return
 
 function filter_products(filters):
     filtered_products = []
@@ -43,3 +43,31 @@ function filter_products(filters):
 # matching_products = filter_products(filters)
 # display matching_products
 
+    print "Storefront"
+    print "--------------------"
+
+    for each product in product_list:
+        print "Name: " + product.name
+        print "Price: $" + product.price
+        print "Attributes:"
+        print "  Width: " + product.width
+        print "  Height: " + product.height
+        print "  Length: " + product.length
+        print "  Weight: " + product.weight
+        print "  Color: " + product.color
+        print "  Brand: " + product.brand
+        print "--------------------"
+
+# Show a short summary of available products
+function display_store_summary():
+    total_products = length of product_list
+    print "Total products available: " + total_products
+
+# Show the first product in the store
+function display_featured_product():
+    if product_list is empty:s
+        print "No featured product available."
+        return
+
+    featured_product = product_list[0]
+    print "Featured product: " + featured_product.name
