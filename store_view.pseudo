@@ -4,6 +4,7 @@ function display_products():
     if product_list is empty:
         print "No products available in the store."
         return
+
     print "Storefront"
     print "--------------------"
 
@@ -19,21 +20,21 @@ function display_products():
         print "  Brand: " + product.brand
         print "--------------------"
 
+
 # Show a short summary of available products
 function display_store_summary():
-    total_products = length of product_list
+    total_products = length(product_list)
     print "Total products available: " + total_products
+
 
 # Show the first product in the store
 function display_featured_product():
-    if product_list is empty:s
+    if product_list is empty:
         print "No featured product available."
         return
 
     featured_product = product_list[0]
     print "Featured product: " + featured_product.name
-
-
 
 
 function filter_products(filters):
@@ -61,7 +62,7 @@ function filter_products(filters):
             matches_all_filters = false
 
         if matches_all_filters:
-            add product to filtered_products
+            append product to filtered_products
 
     return filtered_products
 
@@ -73,6 +74,3 @@ function filter_products(filters):
 # }
 # matching_products = filter_products(filters)
 # display matching_products
-
-   
-
