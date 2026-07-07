@@ -137,7 +137,32 @@ function login_user(email, password):
 
 
 
+# ----------------------------
+# logout function
+# ----------------------------
+
+# Log out the currently logged-in user
+function logout_user():
+    if current_user is null:
+        print "Logout failed: no user is currently logged in"
+        return false
+
+    print current_user.name + " has logged out"
+    current_user = null
+    return true
 
 
+# Check if there is a logged-in user
+function is_logged_in():
+    if current_user is null:
+        return false
 
-# function login_user(email, password)
+    return true
+
+
+# Display the current login status
+function display_current_user():
+    if current_user is null:
+        print "No user is currently logged in"
+    else:
+        print "Logged in as " + current_user.name + " using " + current_user.email
