@@ -1,16 +1,52 @@
-# Handles product data
+# --------------------------
+# Product model
+# --------------------------
 
-# Sample structure:
-# product = {
-#     name: "Sample Product",
-#     width: 10,
-#     height: 5,
-#     length: 20,
-#     weight: 1.5,
-#     color: "red",
-#     brand: "Generic"
-# }
+# Product entity
+class Product:
+    function constructor(name, price, width, height, length, weight, color, brand):
+        this.name = name
+        this.price = price
+        this.width = width
+        this.height = height
+        this.length = length
+        this.weight = weight
+        this.color = color
+        this.brand = brand
 
-# Placeholder product list
+
+# --------------------------
+# In-memory data structure for products
+# --------------------------
+
+
+# In-memory product list
 product_list = []
 
+
+
+# --------------------------
+# Feature 3: Product Management: Adding products + helper funcs
+# --------------------------
+
+# Add a new product to the product list
+function add_product(name, price, width, height, length, weight, color, brand):
+    new_product = new Product(name, price, width, height, length, weight, color, brand)
+
+    append new_product to product_list
+
+    print "Product added: " + new_product.name
+    return new_product
+
+
+# Return all products in the store
+function get_all_products():
+    return product_list
+
+
+# Check if there are products available
+function has_products():
+    if product_list is empty:
+        return false
+
+    return true
