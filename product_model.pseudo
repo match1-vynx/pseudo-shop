@@ -1,4 +1,6 @@
-# Handles product data
+# --------------------------
+# Product model
+# --------------------------
 
 # Product entity
 class Product:
@@ -16,6 +18,11 @@ class Product:
 # In-memory product list
 product_list = []
 
+
+
+# --------------------------
+# Feature 3: Product Management: Adding products + helper funcs
+# --------------------------
 
 # Add a new product to the product list
 function add_product(name, price, width, height, length, weight, color, brand):
