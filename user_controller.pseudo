@@ -7,7 +7,59 @@ user_list = []
 current_user = null
 
 
+# ----------------------------
+# VALIDATION HELPER FUNCTIONS
+# ----------------------------
+
+# Check if a value is empty
+function is_blank(value):
+    if value is null:
+        return true
+
+    if trim(value) == "":
+        return true
+
+    return false
+
+
+# Normalize email before saving or checking
+function normalize_email(email):
+    return lowercase(trim(email))
+
+
+# Check if email has a basic valid format
+function is_valid_email(email):
+    if is_blank(email):
+        return false
+
+    if "@" not in email:
+        return false
+
+    if "." not in email:
+        return false
+
+    return true
+
+
+# Check if password follows a basic rule
+function is_valid_password(password):
+    if is_blank(password):
+        return false
+
+    if length(password) < 6:
+        return false
+
+    return true
+
+
+
+
+
+
 # Placeholder function signatures:
 
 # function create_user(name, email, password)
+
+
+
 # function login_user(email, password)
