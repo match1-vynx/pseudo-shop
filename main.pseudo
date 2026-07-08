@@ -43,6 +43,19 @@ function run_product_setup_flow():
 
 
 # --------------------------
+# Storefront display flow
+# --------------------------
+
+# Display the available products in the store
+function run_storefront_flow():
+    print "Loading storefront..."
+
+    display_store_summary()
+    display_featured_product()
+    display_products()
+
+
+# --------------------------
 # Main app flow
 # --------------------------
 
@@ -51,6 +64,7 @@ function run_app():
     display_app_header()
     run_user_auth_flow()
     run_product_setup_flow()
+    run_storefront_flow()
 
 
 run_app()
