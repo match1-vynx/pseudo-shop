@@ -1,8 +1,22 @@
 # Main entry point
 
 # This file ties together all components of the pseudo-shop
-# Feel free to modify this to simulate application flow
+# No import system is needed because all pseudo files are assumed to be available
+
+
+# --------------------------
+# Application startup
+# --------------------------
+
+# Display the application header
+function display_app_header():
+    print "Welcome to the Pseudo Shop!"
+    print "--------------------------"
+
 
 # Run the app
-print "Welcome to the Pseudo Shop!"
+function run_app():
+    display_app_header()
 
+
+run_app()
