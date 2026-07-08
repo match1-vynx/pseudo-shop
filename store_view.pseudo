@@ -46,41 +46,32 @@ function display_featured_product():
 # --------------------------
 # Feature 1: Filter Products
 # --------------------------
+function normalize_filter_value(value):
+    if value is null:
+        return null
+
+    if value is number:
+        return value
+
+    return lowercase(trim(value))
+
+
 function filter_products(filters):
     filtered_products = []
 
+    if filters is null:
+        return get_all_products()
+
+    normalized_filters = {}
+
+    for each key in filters:
+        normalized_filters[key] = normalize_filter_value(filters[key])
+
     for each product in product_list:
-        matches_all_filters = true
-
-        if filters contains "min_price" and product.price < filters.min_price:
-            matches_all_filters = false
-
-        if filters contains "max_price" and product.price > filters.max_price:
-            matches_all_filters = false
-
-        if filters contains "width" and product.width is not filters.width:
-            matches_all_filters = false
-
-        if filters contains "height" and product.height is not filters.height:
-            matches_all_filters = false
-
-        if filters contains "length" and product.length is not filters.length:
-            matches_all_filters = false
-
-        if filters contains "weight" and product.weight is not filters.weight:
-            matches_all_filters = false
-
-        if filters contains "color" and product.color is not filters.color:
-            matches_all_filters = false
-
-        if filters contains "brand" and product.brand is not filters.brand:
-            matches_all_filters = false
-
-        if matches_all_filters:
+        if product.matches_filters(normalized_filters):
             append product to filtered_products
 
     return filtered_products
-
 
 # Example usage of filter_products:
 # filters = {
