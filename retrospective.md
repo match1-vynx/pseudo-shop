@@ -8,9 +8,6 @@
 ## 1. How did you divide the work between you and your partner?
 _(Who worked on which features? How was the work assigned or negotiated?)_
 
-## 1. How did you divide the work between you and your partner?
-_(Who worked on which features? How was the work assigned or negotiated?)_
-
 We divided the work by first identifying which features could be developed independently and which features had dependencies on shared files or shared data structures. Instead of having everyone work directly on the same files at the same time, we followed a feature-based development workflow similar to how software teams avoid pushing unfinished changes directly to a stable or production-like branch.
 
 In our project, we treated the `main` branch as the stable production-like branch. Because of this, each member worked on a separate feature branch first. This allowed us to isolate changes, reduce unnecessary conflicts, and review the behavior of each feature before integration.
@@ -60,9 +57,9 @@ Another important workflow was communicating before merging. Since some features
 ## 3. Describe a merge conflict you encountered. What caused it and how did you resolve it?
 _(Include any lessons learned or techniques used to resolve the issue.)_
 
-The merge conflict happend while trying to combine features 1 and 4. Rafael was working on a product filtering feature and at the same time, Gabriel was on a separate branch developing the storefront display feature. They were both editing the same core repository file but did not touched each other's code. However they both appended their functions to the very bottom of that file (store_view).
+The merge conflict happened while trying to combine features 1 and 4. Rafael was working on a product filtering feature and at the same time, Gabriel was on a separate branch developing the storefront display feature. They were both editing the same core repository file but did not touched each other's code. However they both appended their functions to the very bottom of that file (`store_view.pseudo`).
 
-After this, a branch `feat/product-management` was created to combine our work since they used the same files and they were needed to develop the product management feature. First, the `feat/filter-products-by-attributes` branch was successfully merged into `feat/product-management` and because it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
+After this, a branch `feat/product-management` was created to combine their works since they used the same files and they were needed to develop the product management feature. First, the `feat/filter-products-by-attributes` branch was successfully merged into `feat/product-management` and because it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
 
 The conflict happened right after, when Rafael tried to merge the `feat/display-storefront` to bring in Gabriel's work. Git immediately halted the merge process in my terminal and flagged a conflict error.
 
