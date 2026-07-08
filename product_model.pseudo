@@ -84,9 +84,12 @@ product_list = []
 # Feature 3: Product Management: Adding products + helper funcs
 # --------------------------
 
+function generate_product_id():
+    return length(product_list) + 1
+
 # Add a new product to the product list
 function add_product(id, name, price, width, height, length, weight, color, brand):
-    new_product = new Product(id, name, price, width, height, length, weight, color, brand)
+    new_product = new Product(generate_product_id(), name, price, width, height, length, weight, color, brand)
 
     if not new_product.validate():
         throw error "Please enter valid attributes for the product"
