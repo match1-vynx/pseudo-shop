@@ -88,7 +88,7 @@ function generate_product_id():
     return length(product_list) + 1
 
 # Add a new product to the product list
-function add_product(id, name, price, width, height, length, weight, color, brand):
+function add_product(name, price, width, height, length, weight, color, brand):
     new_product = new Product(generate_product_id(), name, price, width, height, length, weight, color, brand)
 
     if not new_product.validate():
