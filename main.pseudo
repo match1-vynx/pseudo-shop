@@ -56,15 +56,69 @@ function run_storefront_flow():
 
 
 # --------------------------
+# Product filtering flow
+# --------------------------
+
+# Display filtered product results
+function display_filtered_products(filtered_products):
+    if filtered_products is empty:
+        print "No products matched the selected filters."
+        return
+
+    print "Filtered Products"
+    print "--------------------"
+
+    for each product in filtered_products:
+        print "Name: " + product.name
+        print "Price: $" + product.price
+        print "Color: " + product.color
+        print "Brand: " + product.brand
+        print "--------------------"
+
+
+# Simulate filtering products by selected attributes
+function run_filter_flow():
+    print "Filtering products..."
+
+    filters = {
+        "brand": "HomeCraft",
+        "min_price": 1000,
+        "max_price": 2000
+    }
+
+    matching_products = filter_products(filters)
+
+    display_filtered_products(matching_products)
+
+
+# --------------------------
+# Application shutdown
+# --------------------------
+
+# End the application session
+function run_logout_flow():
+    logout_user()
+    print "Thank you for visiting the Pseudo Shop!"
+
+
+# --------------------------
 # Main app flow
 # --------------------------
 
 # Run the app
 function run_app():
     display_app_header()
+
     run_user_auth_flow()
+
+    if is_logged_in() == false:
+        print "Application stopped because no user is logged in."
+        return
+
     run_product_setup_flow()
     run_storefront_flow()
+    run_filter_flow()
+    run_logout_flow()
 
 
 run_app()
