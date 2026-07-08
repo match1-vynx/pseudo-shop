@@ -1,8 +1,124 @@
 # Main entry point
 
 # This file ties together all components of the pseudo-shop
-# Feel free to modify this to simulate application flow
+# No import system is needed because all pseudo files are assumed to be available
+
+
+# --------------------------
+# Application startup
+# --------------------------
+
+# Display the application header
+function display_app_header():
+    print "Welcome to the Pseudo Shop!"
+    print "--------------------------"
+
+
+# --------------------------
+# User authentication flow
+# --------------------------
+
+# Simulate user registration and login
+function run_user_auth_flow():
+    print "Setting up user account..."
+
+    create_user("Michelle Tolentino", "michelle@example.com", "secure123")
+    login_user("michelle@example.com", "secure123")
+
+    display_current_user()
+
+
+# --------------------------
+# Product setup flow
+# --------------------------
+
+# Add sample products to the store
+function run_product_setup_flow():
+    print "Adding products to the store..."
+
+    add_product("Wooden Table", 1200, 40, 30, 60, 15, "brown", "HomeCraft")
+    add_product("Office Chair", 2500, 25, 45, 25, 10, "black", "WorkPro")
+    add_product("Storage Box", 350, 20, 15, 30, 3, "red", "Generic")
+    add_product("Study Desk", 1800, 35, 30, 50, 12, "white", "HomeCraft")
+
+
+# --------------------------
+# Storefront display flow
+# --------------------------
+
+# Display the available products in the store
+function run_storefront_flow():
+    print "Loading storefront..."
+
+    display_store_summary()
+    display_featured_product()
+    display_products()
+
+
+# --------------------------
+# Product filtering flow
+# --------------------------
+
+# Display filtered product results
+function display_filtered_products(filtered_products):
+    if filtered_products is empty:
+        print "No products matched the selected filters."
+        return
+
+    print "Filtered Products"
+    print "--------------------"
+
+    for each product in filtered_products:
+        print "Name: " + product.name
+        print "Price: $" + product.price
+        print "Color: " + product.color
+        print "Brand: " + product.brand
+        print "--------------------"
+
+
+# Simulate filtering products by selected attributes
+function run_filter_flow():
+    print "Filtering products..."
+
+    filters = {
+        "brand": "HomeCraft",
+        "min_price": 1000,
+        "max_price": 2000
+    }
+
+    matching_products = filter_products(filters)
+
+    display_filtered_products(matching_products)
+
+
+# --------------------------
+# Application shutdown
+# --------------------------
+
+# End the application session
+function run_logout_flow():
+    logout_user()
+    print "Thank you for visiting the Pseudo Shop!"
+
+
+# --------------------------
+# Main app flow
+# --------------------------
 
 # Run the app
-print "Welcome to the Pseudo Shop!"
+function run_app():
+    display_app_header()
 
+    run_user_auth_flow()
+
+    if is_logged_in() == false:
+        print "Application stopped because no user is logged in."
+        return
+
+    run_product_setup_flow()
+    run_storefront_flow()
+    run_filter_flow()
+    run_logout_flow()
+
+
+run_app()
