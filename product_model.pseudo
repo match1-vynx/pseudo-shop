@@ -16,7 +16,7 @@ class Product:
         this.brand = lowercase(trim(brand))
 
     function validate():
-        if is_blank(this.name):
+        if this.name is null or trim(this.name) == "":
             return false
 
         if this.price is null or this.price <= 0:
