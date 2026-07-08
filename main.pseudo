@@ -29,6 +29,20 @@ function run_user_auth_flow():
 
 
 # --------------------------
+# Product setup flow
+# --------------------------
+
+# Add sample products to the store
+function run_product_setup_flow():
+    print "Adding products to the store..."
+
+    add_product("Wooden Table", 1200, 40, 30, 60, 15, "brown", "HomeCraft")
+    add_product("Office Chair", 2500, 25, 45, 25, 10, "black", "WorkPro")
+    add_product("Storage Box", 350, 20, 15, 30, 3, "red", "Generic")
+    add_product("Study Desk", 1800, 35, 30, 50, 12, "white", "HomeCraft")
+
+
+# --------------------------
 # Main app flow
 # --------------------------
 
@@ -36,6 +50,7 @@ function run_user_auth_flow():
 function run_app():
     display_app_header()
     run_user_auth_flow()
+    run_product_setup_flow()
 
 
 run_app()
