@@ -14,9 +14,28 @@ function display_app_header():
     print "--------------------------"
 
 
+# --------------------------
+# User authentication flow
+# --------------------------
+
+# Simulate user registration and login
+function run_user_auth_flow():
+    print "Setting up user account..."
+
+    create_user("Michelle Tolentino", "michelle@example.com", "secure123")
+    login_user("michelle@example.com", "secure123")
+
+    display_current_user()
+
+
+# --------------------------
+# Main app flow
+# --------------------------
+
 # Run the app
 function run_app():
     display_app_header()
+    run_user_auth_flow()
 
 
 run_app()
