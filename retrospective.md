@@ -8,7 +8,10 @@
 ## 1. How did you divide the work between you and your partner?
 _(Who worked on which features? How was the work assigned or negotiated?)_
 
-We divided the work by first identifying which features could be developed independently and which features had dependencies on shared files or shared data structures. Instead of having everyone work directly on the same files at the same time, we followed a feature-based development workflow similar to how software teams avoid pushing unfinished changes directly to production.
+## 1. How did you divide the work between you and your partner?
+_(Who worked on which features? How was the work assigned or negotiated?)_
+
+We divided the work by first identifying which features could be developed independently and which features had dependencies on shared files or shared data structures. Instead of having everyone work directly on the same files at the same time, we followed a feature-based development workflow similar to how software teams avoid pushing unfinished changes directly to a stable or production-like branch.
 
 In our project, we treated the `main` branch as the stable production-like branch. Because of this, each member worked on a separate feature branch first. This allowed us to isolate changes, reduce unnecessary conflicts, and review the behavior of each feature before integration.
 
@@ -31,20 +34,27 @@ We recognized that **Feature 3: Product Creation and Listing** depended on the p
 
 ### Integration Strategy
 
-For integration, we first merged Rafael’s filtering work and Gab’s storefront display work, since both were closely related to the product model. After that, we checked the combined version for merge conflicts, naming inconsistencies, and mismatched product attributes.
+During our face-to-face work session, we experimented with terminal-based Git merges so that we could understand the merge process more directly. Since we were working together in person, we were also able to review code synchronously, discuss conflicts as they appeared, and agree on which changes should be kept before committing the resolved version.
 
-Once Features 1 and 4 were integrated, Michelle used that merged version as the base for Feature 3. This was similar to creating an integration layer where related changes are combined and tested before being merged into the stable branch.
+For the first integration step, we merged Rafael’s filtering work and Gab’s storefront display work because both were closely related to the product model. After merging, we reviewed the combined version for merge conflicts, naming inconsistencies, and mismatched product attributes. Once Features 1 and 4 were integrated, Michelle used that merged version as the base for Feature 3, since product management needed to use the finalized product model and connect with the storefront display logic.
 
-Finally, we reviewed the completed branches before merging them into `main`. Since Michelle owned the GitHub repository, the final merge into `main` was done through her account.
+On the following day, our workflow became more asynchronous. Since we were no longer reviewing everything together in person, we used pull requests to continue the integration process more safely. This helped us review changes to the `main.pseudo` application flow and additional updates to the feature `.pseudo` files before merging them back into the `integration` branch.
 
+This approach allowed us to use two collaboration styles depending on the situation: synchronous terminal-based merging when we were together, and pull request-based review when we were working asynchronously. Both approaches helped us practice real software engineering habits such as isolating work in branches, reviewing changes before integration, and keeping the stable branch protected from incomplete or unreviewed updates.
+
+Finally, after the integrated version was reviewed and stabilized, the completed work was prepared to be merged into `main`. Since Michelle owned the GitHub repository, the final merge into `main` was done through her account.
 
 
 ## 2. What Git strategies or commands helped you most during the project?
 _(E.g., branching, rebasing, frequent commits, etc.)_
 
-The Git strategies that helped us most were creating feature branches for each task, making frequent commits with clear messages, and pulling updates regularly before continuing work. Branching allowed us to work separately without disrupting the main project, while consistent commits made it easier to track changes and review progress. 
+The Git strategies that helped us most were using feature branches, maintaining clear commit history, regularly pulling updates from the shared branch, and reviewing changes before integration. Feature branches allowed each member to isolate work for a specific feature without directly affecting the stable `main` branch or the shared `integration` branch.
 
-We also found that communicating before merging helped prevent unnecessary conflicts and kept the workflow organized. These habits made collaboration smoother and more reliable throughout the project.
+Frequent and descriptive commits were also helpful because they made our Git history easier to understand. Instead of committing large batches of unrelated changes, we tried to commit progressively so that each commit represented a specific improvement, such as adding validation logic, implementing a feature function, or updating the main application flow.
+
+We also relied on commands such as `git status`, `git log`, `git branch`, `git pull`, `git merge`, and `git push` to track our local changes, review commit history, synchronize with remote branches, and integrate completed work. These commands helped us understand the current state of the repository before making changes or merging branches.
+
+Another important workflow was communicating before merging. Since some features depended on shared files like `product_model.pseudo` and `store_view.pseudo`, we had to coordinate changes to avoid overwriting each other’s work. When working asynchronously, using pull requests helped us review changes more carefully before merging them back into the `integration` branch.
 
 
 ## 3. Describe a merge conflict you encountered. What caused it and how did you resolve it?
@@ -52,13 +62,13 @@ _(Include any lessons learned or techniques used to resolve the issue.)_
 
 The merge conflict happend while trying to combine features 1 and 4. Rafael was working on a product filtering feature and at the same time, Gabriel was on a separate branch developing the storefront display feature. They were both editing the same core repository file but did not touched each other's code. However they both appended their functions to the very bottom of that file (store_view).
 
-After this, a branch `feat/product-management` was created to combine our work since they used the same files. First, the product filtering branch was successfully merged into `feat/product-management` beecause it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
+After this, a branch `feat/product-management` was created to combine our work since they used the same files and they were needed to develop the product management feature. First, the `feat/filter-products-by-attributes` branch was successfully merged into `feat/product-management` and because it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
 
 The conflict happened right after, when Rafael tried to merge the `feat/display-storefront` to bring in Gabriel's work. Git immediately halted the merge process in my terminal and flagged a conflict error.
 
-Because we both had appended our new functions to the very bottom of that same file, Rafael's filtering function now occupied the exact same line numbers where Gabriel’s storefront function was trying to sit. Git couldn't automatically determine how to order them.
+Because they both had appended the new functions to the very bottom of that same file, Rafael's filtering function now occupied the exact same line numbers where Gabriel’s storefront function was trying to sit. Git couldn't automatically determine how to order them.
 
-To resolve it, Rafael opened the file in an editor and found Git's conflict markers separating the filtering function from Gabriel's storefront code. He manually deleted the markers, stacked the functions so both features could coexist, and saved the file. Finally, he ran added and committed the resolution, successfully finalizing the merge on our `feat/product-management` branch.
+To resolve it, Rafael opened the file in an editor and found Git's conflict markers separating the filtering function from Gabriel's storefront code. He deleted the markers, stacked the functions so both features could coexist, and saved the file. Finally, he ran added and committed the resolution, successfully finalizing the merge on our `feat/product-management` branch and we were finally able to proceed with developing the feature.
 
 
 ## 4. What were the biggest challenges you faced as a team?
@@ -87,7 +97,7 @@ _(Any insights or habits you’d apply in future projects?)_
 ## 6. How would you improve your workflow next time?
 _(Think about technical habits and teamwork practices.)_
 
-- **Michelle** - Next time, I would establish a more formal review process using pull requests instead of relying only on direct branch merges. Pull requests would make it easier to review changes, discuss implementation details, and verify that the feature is ready before merging it into the stable branch. This would better simulate real software engineering workflows where changes are reviewed before being integrated.
+- **Michelle** - If this were a real production workflow, I would use pull requests from start to finish as the standard process for reviewing and merging changes. In this activity, we used both terminal-based merges and pull requests, which was useful because the manual merges helped us understand Git integration and conflict resolution more directly, while the later use of PRs helped us review changes more formally. In a production setting, using PRs throughout the entire workflow would provide a clearer review trail, make approvals easier to track, and help ensure that each branch is checked against the exit criteria, pseudo-code style, shared file changes, and latest `integration` updates before merging.
 
 - **Rafael** - Next time, I would create smaller and more focused commits so that each commit represents a clear and specific change. I would also merge or pull updates from the main branch more often to keep my feature branch updated and reduce the risk of larger conflicts later.
 
