@@ -35,30 +35,118 @@ function normalize_email(email):
     return lowercase(trim(email))
 
 
-# Check if email has a basic valid format
+# Check if a name is valid
+function is_valid_name(name):
+    if is_blank(name):
+        return false
+
+    trimmed_name = trim(name)
+
+    if length(trimmed_name) < 2:
+        return false
+
+    return true
+
+
+# Check if text contains a space
+function has_spaces(value):
+    if " " in value:
+        return true
+
+    return false
+
+
+# Count how many times a character appears in a value
+function count_character(value, character):
+    total_count = 0
+
+    for each current_character in value:
+        if current_character == character:
+            total_count = total_count + 1
+
+    return total_count
+
+
+# Check if email has a stronger valid format
 function is_valid_email(email):
     if is_blank(email):
         return false
 
-    if "@" not in email:
+    normalized_email = normalize_email(email)
+
+    if has_spaces(normalized_email):
         return false
 
-    if "." not in email:
+    if count_character(normalized_email, "@") != 1:
+        return false
+
+    email_parts = split normalized_email by "@"
+    local_part = email_parts[0]
+    domain_part = email_parts[1]
+
+    if is_blank(local_part):
+        return false
+
+    if is_blank(domain_part):
+        return false
+
+    if "." not in domain_part:
+        return false
+
+    if domain_part starts with ".":
+        return false
+
+    if domain_part ends with ".":
         return false
 
     return true
 
 
-# Check if password follows a basic rule
+# Check if password has at least one uppercase letter
+function has_uppercase_letter(value):
+    for each character in value:
+        if character is uppercase letter:
+            return true
+
+    return false
+
+
+# Check if password has at least one lowercase letter
+function has_lowercase_letter(value):
+    for each character in value:
+        if character is lowercase letter:
+            return true
+
+    return false
+
+
+# Check if password has at least one number
+function has_number(value):
+    for each character in value:
+        if character is number:
+            return true
+
+    return false
+
+
+# Check if password follows stronger security rules
 function is_valid_password(password):
     if is_blank(password):
         return false
 
-    if length(password) < 6:
+    if length(password) < 8:
+        return false
+
+    if has_uppercase_letter(password) == false:
+        return false
+
+    if has_lowercase_letter(password) == false:
+        return false
+
+    if has_number(password) == false:
         return false
 
     return true
-
 
 
 # ----------------------------
@@ -78,8 +166,8 @@ function find_user_by_email(email):
 
 # Create a new user account
 function create_user(name, email, password):
-    if is_blank(name):
-        print "Registration failed: name is required"
+    if is_valid_name(name) == false:
+        print "Registration failed: name must have at least 2 characters"
         return false
 
     if is_valid_email(email) == false:
@@ -87,7 +175,7 @@ function create_user(name, email, password):
         return false
 
     if is_valid_password(password) == false:
-        print "Registration failed: password must be at least 6 characters"
+        print "Registration failed: password must be at least 8 characters and include uppercase, lowercase, and number"
         return false
 
     normalized_email = normalize_email(email)
@@ -108,7 +196,6 @@ function create_user(name, email, password):
 
     print "Registration successful for " + new_user.name
     return true
-
 
 
 
