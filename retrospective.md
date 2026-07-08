@@ -52,13 +52,13 @@ _(Include any lessons learned or techniques used to resolve the issue.)_
 
 The merge conflict happend while trying to combine features 1 and 4. Rafael was working on a product filtering feature and at the same time, Gabriel was on a separate branch developing the storefront display feature. They were both editing the same core repository file but did not touched each other's code. However they both appended their functions to the very bottom of that file (store_view).
 
-After this, a branch `feat/product-management` was created to combine our work since they used the same files. First, the product filtering branch was successfully merged into `feat/product-management` beecause it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
+After this, a branch `feat/product-management` was created to combine our work since they used the same files and they were needed to develop the product management feature. First, the `feat/filter-products-by-attributes` branch was successfully merged into `feat/product-management` and because it was the first piece of code going into the new branch, the merge went through smoothly without any issues.
 
 The conflict happened right after, when Rafael tried to merge the `feat/display-storefront` to bring in Gabriel's work. Git immediately halted the merge process in my terminal and flagged a conflict error.
 
-Because we both had appended our new functions to the very bottom of that same file, Rafael's filtering function now occupied the exact same line numbers where Gabriel’s storefront function was trying to sit. Git couldn't automatically determine how to order them.
+Because they both had appended the new functions to the very bottom of that same file, Rafael's filtering function now occupied the exact same line numbers where Gabriel’s storefront function was trying to sit. Git couldn't automatically determine how to order them.
 
-To resolve it, Rafael opened the file in an editor and found Git's conflict markers separating the filtering function from Gabriel's storefront code. He manually deleted the markers, stacked the functions so both features could coexist, and saved the file. Finally, he ran added and committed the resolution, successfully finalizing the merge on our `feat/product-management` branch.
+To resolve it, Rafael opened the file in an editor and found Git's conflict markers separating the filtering function from Gabriel's storefront code. He deleted the markers, stacked the functions so both features could coexist, and saved the file. Finally, he ran added and committed the resolution, successfully finalizing the merge on our `feat/product-management` branch and we were finally able to proceed with developing the feature.
 
 
 ## 4. What were the biggest challenges you faced as a team?
