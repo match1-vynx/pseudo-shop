@@ -2,17 +2,72 @@
 # Product model
 # --------------------------
 
-# Product entity
+# Product entity with validation and behavior
 class Product:
-    function constructor(name, price, width, height, length, weight, color, brand):
-        this.name = name
+    function constructor(id, name, price, width, height, length, weight, color, brand):
+        this.id = id
+        this.name = trim(name)
         this.price = price
         this.width = width
         this.height = height
         this.length = length
         this.weight = weight
-        this.color = color
-        this.brand = brand
+        this.color = lowercase(trim(color))
+        this.brand = lowercase(trim(brand))
+
+    function validate():
+        if is_blank(this.name):
+            return false
+
+        if this.price is null or this.price <= 0:
+            return false
+
+        if this.width is null or this.width <= 0:
+            return false
+
+        if this.height is null or this.height <= 0:
+            return false
+
+        if this.length is null or this.length <= 0:
+            return false
+
+        if this.weight is null or this.weight <= 0:
+            return false
+
+        return true
+
+    function get_display_name():
+        return this.brand + " " + this.name
+
+    function matches_filters(filters):
+        if filters is null:
+            return true
+
+        if filters contains "min_price" and this.price < filters.min_price:
+            return false
+
+        if filters contains "max_price" and this.price > filters.max_price:
+            return false
+
+        if filters contains "width" and this.width is not filters.width:
+            return false
+
+        if filters contains "height" and this.height is not filters.height:
+            return false
+
+        if filters contains "length" and this.length is not filters.length:
+            return false
+
+        if filters contains "weight" and this.weight is not filters.weight:
+            return false
+
+        if filters contains "color" and this.color is not lowercase(trim(filters.color)):
+            return false
+
+        if filters contains "brand" and this.brand is not lowercase(trim(filters.brand)):
+            return false
+
+        return true
 
 
 # --------------------------
@@ -29,10 +84,16 @@ product_list = []
 # Feature 3: Product Management: Adding products + helper funcs
 # --------------------------
 
+function generate_product_id():
+    return length(product_list) + 1
+
 # Add a new product to the product list
 function add_product(name, price, width, height, length, weight, color, brand):
-    new_product = new Product(name, price, width, height, length, weight, color, brand)
+    new_product = new Product(generate_product_id(), name, price, width, height, length, weight, color, brand)
 
+    if not new_product.validate():
+        throw error "Please enter valid attributes for the product"
+    
     append new_product to product_list
 
     print "Product added: " + new_product.name
