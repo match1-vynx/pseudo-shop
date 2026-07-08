@@ -5,7 +5,7 @@
 # Displays product listings
 
 function display_products():
-    if product_list is empty:
+    if not has_products():
         print "No products available in the store."
         return
 
